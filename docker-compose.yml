@@ -1,0 +1,12 @@
+version: '3'
+services:
+  rust:
+    build: rust
+    hostname: rust
+    container_name: dev
+    volumes:
+      - rust-v:/prj
+    working_dir: /prj
+volumes:
+  rust-v:
+    driver: local
