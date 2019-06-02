@@ -7,6 +7,17 @@ services:
     volumes:
       - rust-v:/prj
     working_dir: /prj
+  
+  node:
+    build: node
+    hostname: node
+    container_name: dev
+    volumes:
+      - node-v:/prj
+    working_dir: /prj
+
 volumes:
   rust-v:
+    driver: local
+  node-v:
     driver: local
