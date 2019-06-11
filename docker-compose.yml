@@ -16,8 +16,18 @@ services:
       - node-v:/prj
     working_dir: /prj
 
+  common-lisp:
+    build: common-lisp
+    hostname: common-lisp
+    container_name: dev
+    volumes:
+      - common-lisp-v:/prj
+    working_dir: /prj
+
 volumes:
   rust-v:
     driver: local
   node-v:
+    driver: local  
+  common-lisp-v:
     driver: local

@@ -1,0 +1,15 @@
+FROM buildpack-deps:stretch
+
+ADD  dockerfile /opt/image
+RUN git clone https://github.com/masa-suzu/dotfiles.git /opt/dotfiles
+RUN sh /opt/dotfiles/deploy.sh
+RUN apt-get update && apt-get -y install git build-essential automake libcurl4-openssl-dev
+RUN git clone --depth=1 -b release https://github.com/roswell/roswell.git && \
+    cd roswell && \
+    sh bootstrap && \
+    ./configure --disable-manual-install && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf roswell && \
+    ros run -q
