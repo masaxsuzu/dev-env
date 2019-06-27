@@ -23,6 +23,13 @@ services:
     volumes:
       - common-lisp-v:/prj
     working_dir: /prj
+  koka:
+    build: koka
+    hostname: koka
+    container_name: dev
+    volumes:
+      - koka-v:/prj
+    working_dir: /prj
 
 volumes:
   rust-v:
@@ -30,4 +37,6 @@ volumes:
   node-v:
     driver: local  
   common-lisp-v:
+    driver: local
+  koka-v:
     driver: local

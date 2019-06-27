@@ -1,0 +1,15 @@
+FROM haskell:8.6.5
+
+RUN apt-get update
+RUN stack install alex
+
+RUN apt-get install -y gnupg && curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install -g jake madoko 
+
+RUN git clone https://github.com/koka-lang/koka.git
+
+RUN cd koka && npm install
+
+RUN git clone https://github.com/masa-suzu/dotfiles.git /opt/dotfiles
+RUN sh /opt/dotfiles/deploy.sh
