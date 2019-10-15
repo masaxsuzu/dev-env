@@ -29,7 +29,7 @@ services:
     container_name: dev
     volumes:
       - koka-v:/prj
-    working_dir: /prj
+    working_dir: /koka
 
 volumes:
   rust-v:
